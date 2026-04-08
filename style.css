@@ -35,6 +35,10 @@ body {
     height: 100vh;
 }
 
+#btnSettings {
+    display: none;
+}
+
 /* Header */
 .main-header {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
@@ -198,24 +202,15 @@ body {
 
 .eval-card-header {
     background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
+    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.input-eval-title {
-    flex: 1;
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 0.25rem 0;
-}
+/* El título se define más abajo */
 
 .eval-card-actions {
     display: flex;
@@ -889,20 +884,26 @@ body {
 }
 
 .input-eval-title {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
     color: var(--accent);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    width: 100%;
-    padding: 0.5rem 0;
-    transition: border-color 0.3s;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+    line-height: 1.4;
 }
 
 .input-eval-title:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(251, 192, 45, 0.1);
 }
 
 .form-row {
