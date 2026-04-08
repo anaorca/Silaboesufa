@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Virtualizer TGA - ESUFA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- html2pdf.js for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="esufa-badge">ESUFA</div>
+                    <div class="brand">
+                        <h1>Syllabus Virtualizer</h1>
+                        <p>Tecnología en Gestión de Recursos Aeronáuticos (TGA)</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="btnHistory" class="btn btn-secondary">
+                        <span class="icon">📋</span> Mis Sílabos
+                    </button>
+                    <button id="btnSettings" class="btn btn-secondary">
+                        <span class="icon">⚙️</span> IA Settings
+                    </button>
+                    <button id="btnNewCourse" class="btn btn-primary">
+                        <span class="icon">+</span> Nueva Asignatura
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-container">
+            <section class="editor-area">
+                <div class="section-card main-form">
+                    <div class="form-header">
+                        <div class="header-main">
+                            <h2 id="currentModuleTitle">Diligenciamiento de Syllabus</h2>
+                        </div>
+                    </div>
+
+                    <!-- Guía para Dummies -->
+                    <div class="dummies-guide">
+                        <div class="guide-header">
+                            <h2>Guía para el Diligenciamiento del Syllabus</h2>
+                        </div>
+                        <div class="guide-mode-notice">
+                            <p>💡 <strong>Tiene dos opciones:</strong> Puede diligenciar los campos <strong>manualmente</strong> en los espacios requeridos, o puede <strong>apoyarse en la IA</strong> mediante los botones violetas ✨ para que el sistema le sugiera resultados, actividades y recursos alineados pedagógicamente.</p>
+                        </div>
+                        <h3>💡 Guía Rápida: Virtualización de Sílabos ESUFA</h3>
+                        <div class="guide-steps">
+                            <div class="step">
+                                <span class="step-num">0</span>
+                                <p><strong>Configuración:</strong> Use el botón ⚙️ <strong>IA Settings</strong> arriba para conectar su clave o proxy (Solo se hace una vez).</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">1</span>
+                                <p><strong>Selección:</strong> Busque su asignatura o cree una nueva. Ajuste créditos y verifique el cuadro de horas.</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">2</span>
+                                <p><strong>Objetivos y RAPs:</strong> Edite el objetivo general y use el botón <strong>(+)</strong> de Resultados de Aprendizaje.</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">3</span>
+                                <p><strong>Enseñanza y Aprendizaje:</strong> Use los <strong>botones verdes (+)</strong> para crear sus unidades, temas y recursos AVA.</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">4</span>
+                                <p><strong>Evaluación Auténtica:</strong> Describa sus retos de evaluación y elija el instrumento (Rúbrica, Lista, etc.).</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">5</span>
+                                <p><strong>Magia IA (Alineamiento):</strong> Use el botón <strong>✨ Alinear Syllabus</strong> para que la IA vincule automáticamente temas y evaluaciones con sus RAPs.</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-num">6</span>
+                                <p><strong>Finalización:</strong> Guardar cambios y generar el **Word oficial** para firma institucional.</p>
+                            </div>
+                        </div>
+                        <div class="header-actions-row">
+                             <button class="btn btn-ai btn-large" onclick="autoAlignSyllabusWithIA()">✨ Magia IA: Alinear Syllabus (G. Biggs)</button>
+                        </div>
+                        <div class="guide-tip">
+                            💡 <strong>Tip Pro:</strong> Si se equivoca, use la <strong>X roja</strong> para borrar cualquier sección.
+                        </div>
+                        <p class="guide-tip">💡 <em>Tip: Las columnas de Actividades y Recursos son para la modalidad virtual (AVA Blackboard).</em></p>
+                    </div>
+
+                    <!-- Instrucción Central Resaltada -->
+                    <div id="selectionInstructionArea" class="instruction-banner-container">
+                        <p class="instruction-banner">Seleccione una asignatura existente o cree una nueva</p>
+                    </div>
+                        <span class="badge" id="programBadge">Programa: TGA</span>
+                    </div>
+
+                    <div class="selection-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="courseSelect">Asignatura o Módulo</label>
+                                <select id="courseSelect" class="main-select">
+                                    <option value="" disabled selected>-- Seleccione una asignatura --</option>
+                                    <option value="NEW">+ CREAR ASIGNATURA NUEVA</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Modalidad de Ajuste</label>
+                                <div class="modality-toggle">
+                                    <input type="radio" id="modeVirtual" name="modality" value="virtual" checked>
+                                    <label for="modeVirtual">Virtual (100%)</label>
+                                    <input type="radio" id="modePresencial" name="modality" value="presencial">
+                                    <label for="modePresencial">Presencial (Delta/Práctica)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="moduleName">Nombre de la Asignatura / Módulo</label>
+                            <input type="text" id="moduleName" placeholder="Ej. Administración I">
+                        </div>
+                        <div class="form-group">
+                            <label for="moduleCode">Sigla / Código</label>
+                            <input type="text" id="moduleCode" placeholder="Ej. ADM-2-1-8">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="credits">Créditos Totales</label>
+                            <input type="number" id="credits" min="1" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="totalHours">Horas Totales (Calculadas)</label>
+                            <input type="text" id="totalHours" readonly value="48">
+                        </div>
+                    </div>
+
+                    <div class="hours-calculator section-card-lite">
+                        <h3>Distribución de Horas (Modalidad Virtual)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="syncHours">Horas Sincrónicas</label>
+                                <input type="number" id="syncHours" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="asyncHours">Horas Asincrónicas</label>
+                                <input type="number" id="asyncHours" min="0" value="0">
+                            </div>
+                        </div>
+                        <div id="hoursValidation" class="validation-msg"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="courseObjective">Objetivo del Curso</label>
+                        <textarea id="courseObjective" rows="4" placeholder="Describa el objetivo general del módulo..."></textarea>
+                    </div>
+
+                    <div class="raps-section">
+                        <div class="section-title-row">
+                            <h3>1. Resultados de Aprendizaje (RAP)</h3>
+                            <button id="btnAddRAP" class="btn btn-small btn-primary">+ Agregar RAP</button>
+                        </div>
+                        <ul id="rapsList" class="raps-list">
+                            <!-- RAPs populated by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="teaching-activities-section section-card-lite">
+                        <div class="section-title-row">
+                            <h3>2. Estructura de Enseñanza y Aprendizaje</h3>
+                            <div class="btn-group">
+                                <button class="btn btn-small btn-ai" id="btnAIAssistUnits">✨ IA: Sugerir Actividades</button>
+                                <button id="btnAddUnit" class="btn btn-small btn-success">+ Nueva Unidad</button>
+                            </div>
+                        </div>
+                        <p class="subtitle">Alineamiento Constructivo: Relacione cada unidad con un RAP</p>
+                        
+                        <div class="units-header-row">
+                            <div class="col-unit-header-label">UNIDAD / RAP</div>
+                            <div class="col-topics-header">TEMAS</div>
+                            <div class="col-activities-header">ACTIVIDADES (AVA)</div>
+                            <div class="col-resources-header">RECURSOS</div>
+                            <div class="col-actions-header">✕</div>
+                        </div>
+                        <div id="unitsContainer" class="units-container">
+                            <!-- Units Rows populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="evaluation-section section-card-lite">
+                        <div class="section-title-row">
+                            <h3>3. Plan de Evaluación Auténtica</h3>
+                            <div class="btn-group">
+                                <button class="btn btn-small btn-ai" id="btnAIAssistEval">✨ IA: Diseñar Instrumento</button>
+                                <button id="btnAddEval" class="btn btn-small btn-secondary">+ Nueva Evaluación</button>
+                            </div>
+                        </div>
+                        <p class="subtitle">Verifique la alineación entre el reto y el resultado de aprendizaje</p>
+
+                        <div id="evaluationsContainer" class="evaluations-container">
+                            <!-- Evaluations populated by JS -->
+                        </div>
+
+                        <div id="evalEmptyPrompt" class="empty-prompt" style="display:none;">
+                            <p>No hay actividades de evaluación definidas. Haga clic en <strong>+ Nueva Evaluación</strong> para comenzar.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <p class="info-text">Los cambios se guardan localmente de forma automática.</p>
+                        <div class="footer-buttons">
+                            <button id="btnSave" class="btn btn-large btn-success">Guardar Progresos</button>
+                            <button id="btnExportWord" class="btn btn-large btn-primary">
+                                <span class="icon">📝</span> Exportar Word
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- AI Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Configuración de IA (Gemini)</h3>
+                <button class="close-btn" onclick="closeSettingsModal()">✕</button>
+            </div>
+            <div class="form-group">
+                <label for="aiEndpoint">URL del Worker / Proxy (Cloudflare)</label>
+                <input type="text" id="aiEndpoint" placeholder="https://tu-worker.workers.dev/api/gemini" value="">
+                <p class="help-text">Ingrese la URL de su proxy para conectar con Gemini Pro.</p>
+            </div>
+            <div class="form-group">
+                <label for="aiApiKey">API Key (Si conecta directo)</label>
+                <input type="password" id="aiApiKey" placeholder="AIzaSy...">
+            </div>
+            <div class="form-group">
+                <label for="aiModel">Modelo Gemini</label>
+                <select id="aiModel" class="form-control">
+                    <option value="gemini-flash-latest">Gemini Flash (Versión Estable - Recomendado)</option>
+                    <option value="gemini-2.0-flash">Gemini 2.0 Flash (Nuevo - Puede dar error de cuota)</option>
+                    <option value="gemini-pro-latest">Gemini Pro (Versión Avanzada)</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="testAIConnection()">🔍 Probar Conexión</button>
+                <button class="btn btn-secondary" onclick="checkAvailableModels()">📋 Lista Modelos</button>
+                <button class="btn btn-primary" onclick="saveSettings()">Guardar Configuración</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Historial de Sílabos Guardados</h3>
+                <button class="close-btn" onclick="closeHistoryModal()">✕</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <!-- History items will be injected here -->
+                <p style="text-align: center; color: var(--text-dim); padding: 20px;">No hay sílabos guardados aún.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for editing RAPs -->
+    <div id="rapModal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Resultado de Aprendizaje</h3>
+            <textarea id="rapEditor" rows="5"></textarea>
+            <div class="rapModal-footer">
+                <button class="btn btn-ai" onclick="optimizeRAPWithIA()">✨ IA: Corregir con Bloom</button>
+                <div style="flex-grow: 1;"></div>
+                <button class="btn btn-secondary" onclick="closeRAPModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="saveRAP()">Guardar RAP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- IA Overlay -->
+    <div id="iaOverlay">
+        <div class="ia-scanner">
+            <div class="ia-scanner-bar"></div>
+        </div>
+        <h2 id="iaProcessingText">✨ Analítica Pedagógica: Alineando Syllabus...</h2>
+        <p>Aplicando Taxonomía de Bloom y Alineamiento Constructivo (G. Biggs)</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,909 @@
+[
+    {
+        "id": 1,
+        "modulo": "Matemáticas I",
+        "sigla": "BAS-MAT-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Básica",
+        "objetivo_general": "Aplicar correctamente los axiomas, teoremas y propiedades del álgebra y el precálculo en la resolución de problemas en contextos matemáticos",
+        "resultados_aprendizaje": [
+            "Identificar los conjuntos numéricos y su función en los procesos y gestiones asignadas.",
+            "Plantear ecuaciones para la resolución de problemas logística y gestión de proyectos y actividades.",
+            "Utilizar los conceptos geométricos para el diseño de proyectos o soluciones a problemáticas existentes en su entorno laboral."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 2,
+        "modulo": "Inglés Técnico I",
+        "sigla": "AER-ING-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Gestión aeroespacial",
+        "objetivo_general": "Reconocer las partes de aeronaves, instalaciones y bases militares en inglés técnico aeronáutico para pronunciarlas y darse a entender en un segundo idioma.",
+        "resultados_aprendizaje": [
+            "Leer, con la debida rigurosidad técnica , documentos y aplicativos de las diferentes áreas funcionales en idioma inglés",
+            "Manejar conceptos y expresiones técnicas en idioma inglés a fin de gestionar apropiadamente los procesos, funciones y responsabilidades a su cargo."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 AVIATION",
+                "temas": [
+                    "GENERAL",
+                    "KNOWLEDGE Basic Aviation",
+                    "Concepts and",
+                    "Terminology Presentation of the Syllabus Una estrategia para desarrollar la",
+                    "asignatura está enfocada a la",
+                    "formación de conceptos, la",
+                    "inferencia de reglas, principios y"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 AIRCRAFT",
+                "temas": [
+                    "SYSTEMS, Power Plant 1. Turbines 4 2 6",
+                    "2. Reciprocate 4 2 6",
+                    "Aerodynamics 3. How airplanes fly. 4 2 6",
+                    "4a. Hand Tools 2 1 3",
+                    "Tools 4b. Special Tools 2 1 3",
+                    "FUERZA AEROESPACIAL COLOMBIANA Código : GH-JEAES -FR-420",
+                    "FORMATO DE SÍLABO EDUCACIÓN"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 3,
+        "modulo": "Formación Militar Delta I",
+        "sigla": "DELTA-01",
+        "creditos": 6,
+        "horas_totales": 288,
+        "area": "Técnica militar",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 4,
+        "modulo": "Administración I",
+        "sigla": "TGA-ADM-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Reconocer la gestión de la administración y el control en el ámbito aeronáutico, para la organización de un centro logístico de las unidades aéreas de la FAC, mediante el uso de herramientas informáticas en el desarrollo de los procesos de planificación y solución de situaciones en un grupo técnico.",
+        "resultados_aprendizaje": [
+            "Definir los conceptos básicos de la administración y el ciclo administrativo, aplicándolos a casos reales de las unidades aéreas de la FAC.",
+            "Identificar los recursos humanos, materiales y financieros que intervienen en la cadena logística de las unidades aéreas de la FAC, utilizando las herramientas y normas vigentes."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 GENERALIDADES",
+                "temas": [
+                    "DE LA",
+                    "ADMINISTRACIÓN Introducción a",
+                    "los conceptos de",
+                    "Administración Presentación del",
+                    "Syllabus La estrategia para desarrollar",
+                    "la asignatura está dirigida a",
+                    "favorecer simultáneamente"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 EMPRESA",
+                "temas": [
+                    "Génesis y",
+                    "desarrollo",
+                    "empresarial Concepción, organización y",
+                    "preparación de empresa",
+                    "2 1 3",
+                    "Proyecto empresarial",
+                    "2 1 3"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 5,
+        "modulo": "Contabilidad",
+        "sigla": "TGA-CON-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Efectuar los procesos de abstracción, análisis y síntesis de información contable, para dar cuenta de los recursos aeronáuticos a su disposición, administrando adecuadamente y rindiendo información pertinente de forma periódica en las unidades aéreas.",
+        "resultados_aprendizaje": [
+            "Articular los conceptos básicos de contabilidad del sector comercial y del sector público con el ejercicio de la gestión de recursos aéreos.",
+            "Utilizar las cuentas contables representando transacciones económicas en el contexto comercial y aeronáutico."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 GENERALIDADES Conceptos",
+                "temas": [
+                    "Básicos",
+                    "Contables Presentación del Syllabus y",
+                    "acuerdo pedagógico Una de las estrategias para",
+                    "desarrollar la asignatura, está",
+                    "dirigida a favorecer",
+                    "simultáneamente la asimilación",
+                    "de conocimientos y modos de"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 FUNDAMENTOS",
+                "temas": [
+                    "CONTABLES Nomina Estructura, formato guía,",
+                    "prestaciones sociales y",
+                    "parafiscales, Liquidación,",
+                    "ejercicio. 1,5 0,75 2,25",
+                    "Ejercicio diligenciamiento nomina 2 1 3",
+                    "Control de",
+                    "inventarios"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 6,
+        "modulo": "Matemática Financiera",
+        "sigla": "BAS-MAT-02",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Básica",
+        "objetivo_general": "Reconocer los conceptos y procedimientos matemáticos aplicables a la administración, economía, finanzas y contratación, de tal forma que pueda planear y desarrollar los procesos de apoyo al mantenimiento en los centros logísticos de la FAC.",
+        "resultados_aprendizaje": [
+            "Utilizar herramientas matemáticas para calcular y comparar los costos y beneficios de diferentes opciones de adquisición de recursos aéreos, considerando tasas de interés, valores presentes y valores futuros.",
+            "Identificar riesgos financieros asociados con proyectos y operaciones aeroespaciales, para el diseño de propuestas técnicas de análisis de riesgos y toma de decisiones."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 PROGRESIONES E",
+                "temas": [
+                    "INTERÉS RAZONES Y",
+                    "PROPORCIONES Presentación del",
+                    "Syllabus y acuerdo",
+                    "pedagógico Una de las estrategias para",
+                    "desarrollar la asignatura, está",
+                    "dirigida a favorecer simultáneamente",
+                    "la asimilación de conocimientos y"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 ANUALIDADES",
+                "temas": [
+                    "ANUALIDADES Y",
+                    "CONTINGENCIAS",
+                    "Evaluación Segundo",
+                    "Corte 30% 1 0.5 1.5",
+                    "Valor Presente y Valor",
+                    "futuro 2 1 3",
+                    "Clasificación de las"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 7,
+        "modulo": "Seguridad Industrial, Salud Ocupacional y Medio Ambiente",
+        "sigla": "AER-SST-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Gestión aeroespacial",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 8,
+        "modulo": "Formación Militar Delta II",
+        "sigla": "DELTA-02",
+        "creditos": 3,
+        "horas_totales": 144,
+        "area": "Técnica militar",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 9,
+        "modulo": "Administración II",
+        "sigla": "TGA-ADM-02",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Identificar los conceptos y procedimientos de los procesos administrativos para los diferentes cargos o secciones, en el desarrollo de las labores de los centros logísticos de la FAC.",
+        "resultados_aprendizaje": [
+            "Describir los procesos de la administración moderna y sus aplicaciones en contextos productivos institucionales.",
+            "Comparar las teorías contemporáneas de la administración y la vinculación de inteligencia artificial para hacer más eficientes los procesos."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 INTRODUCCIÓN A",
+                "temas": [
+                    "LOS CONCEPTOS",
+                    "DE LA",
+                    "ADMINISTRACIÓN II PROCESO",
+                    "ADMINISTRATIVO Presentación del",
+                    "programa, acuerdo",
+                    "pedagógico, prueba",
+                    "diagnóstica, socialización"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 10,
+        "modulo": "Gestión de Recursos Aéreos I",
+        "sigla": "TGA-GRA-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 11,
+        "modulo": "Costos y Presupuesto",
+        "sigla": "TGA-COS-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Analizar la información que genera una empresa aeronáutica como la FAC para el desarrollo de sus operaciones de vuelo y uso de equipos, manteniendo a disposición el material necesario en el tiempo adecuado para el mantenimiento aeronáutico.",
+        "resultados_aprendizaje": [
+            "Explicar los elementos del costo en el proceso productivo de las áreas funcionales de la FAC.",
+            "Asociar los presupuestos comerciales, pronóstico, producción, gastos y efectivo en el contexto público y aeronáutico."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 12,
+        "modulo": "Control de Inventarios",
+        "sigla": "TGA-INV-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Reconocer los conceptos y procedimientos necesarios del control de inventarios en el sector público y privado, que le permitan realizar la administración de recursos y materiales en los almacenes, para apoyar las labores operativas, militares y de mantenimiento de la FAC.",
+        "resultados_aprendizaje": [
+            "Distinguir los procesos logísticos y administrativos del control de inventarios, para la administración eficaz y eficiente de los recursos y materiales a su disposición.",
+            "Aplicar los conceptos y procedimientos básicos e iniciales para el control de inventarios en el sector público y privado, como apoyo estratégico a las labores operativas, militares y de mantenimiento de la FAC."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 13,
+        "modulo": "Estadística",
+        "sigla": "BAS-EST-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Básica",
+        "objetivo_general": "Aplicar las técnicas de tratamiento de datos usando los métodos estadísticos de una sola variable con el fin de extraer información descriptiva e inferencial en situaciones en contextos reales",
+        "resultados_aprendizaje": [
+            "Clasificar datos en tablas de frecuencia y gráficas estadísticas para el análisis y la interpretación de resultados de riesgos y la evaluación de rendimiento.",
+            "Calcular las medidas de tendencia central, como la media, mediana y moda, para evaluar situaciones reales de gestión en la logística de servicios"
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 GENERALIDADES,",
+                "temas": [
+                    "FRECUENCIAS Y",
+                    "GRÁFICOS",
+                    "Generalidades de",
+                    "estadística Presentación del",
+                    "syllabus y",
+                    "acuerdos",
+                    "pedagógicos."
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 MEDIDAS",
+                "temas": [
+                    "Centralización",
+                    "Media aritmética Propiedades de la",
+                    "media aritmética Encuentro Sincrónico /",
+                    "Mediación Pedagógica /",
+                    "Uso de herramientas",
+                    "Excel"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 14,
+        "modulo": "Teoría Aeroespacial I",
+        "sigla": "AER-TEO-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Gestión aeroespacial",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 15,
+        "modulo": "Técnicas de la Comunicación",
+        "sigla": "INV-COM-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Investigativa",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 16,
+        "modulo": "Formacion Militar Delta III",
+        "sigla": "DELTA-03",
+        "creditos": 3,
+        "horas_totales": 144,
+        "area": "Técnica militar",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 17,
+        "modulo": "Gestión Humana",
+        "sigla": "TGA-GHU-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Identificar los procesos que intervienen en la gestión del talento humano, implementar propuestas efectivas de selección de personal, aplicar medición de indicadores KPI y proyectar una posible ruta de plan de carrera.",
+        "resultados_aprendizaje": [
+            "Identificar la importancia de la evaluación del personal en la Institución Militar y en las organizaciones privadas de acuerdo con rol que los caracteriza en la estructura mediante métodos de evaluación de desempeño con el modelo de 360º e indicadores de KPI.",
+            "Formular alternativas para administrar el talento humano en Unidades Militares y en organizaciones públicas y privadas utilizando los conceptos de planeación, funciones y estructura del departamento de gestión humana."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 18,
+        "modulo": "Gestión de Recursos Aéreos II",
+        "sigla": "TGA-GRA-02",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 19,
+        "modulo": "Compras y Suministros",
+        "sigla": "TGA-CYS-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Reconocer los conceptos y procedimientos necesarios de las compras y suministros en el sector público y privado, que le permitan realizar negociaciones para la adquisición de bienes y servicios que apoyen las labores operativas, militares y de mantenimiento de la FAC.",
+        "resultados_aprendizaje": [
+            "Desarrollar el proceso de adquisición de bienes y servicios que apoyen las labores operativas y logísticas de la FAC en perfecto cumplimiento de las funciones y procedimientos del departamento de compras tanto del sector público como privado, bien sea a nivel nacional o internacional.",
+            "Aplicar estrategias de control de compras en el sector público y privado, garantizando la optimización de los recursos financieros y logísticos en el proceso de adquisición de suministros para el cumplimiento de la misión de la FAC."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 20,
+        "modulo": "Logística en Conflictos Armados",
+        "sigla": "TGA-LCA-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 21,
+        "modulo": "Teoría Aeroespacial II",
+        "sigla": "AER-TEO-02",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Gestión aeroespacial",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 22,
+        "modulo": "Metodología de la Investigación",
+        "sigla": "INV-MET-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Investigativa",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 23,
+        "modulo": "Prospectiva",
+        "sigla": "TGA-PRO-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Desarrollar en el estudiante habilidades y competencias en pro de definir una metodología para la estructuración y aplicación de un plan prospectivo que le permitan realizar un monitoreo continuo de las diversas organizaciones y sectores inmersos en el desarrollo de las operaciones aéreas, según las diferentes necesidades institucionales.",
+        "resultados_aprendizaje": [
+            "Utilizar de manera efectiva y práctica los conceptos de prospectiva en el análisis de tendencias tecnológicas y su influencia en la gestión de recursos aéreos, demostrando la capacidad de trasladar teoría a casos reales de la aviación.",
+            "Diseñar escenarios prospectivos detallados que consideren diversas variables tecnológicas y operativas, ilustrando cómo estas variables pueden interactuar y afectar las operaciones aéreas, con el fin de tomar decisiones informadas y adaptativas."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 24,
+        "modulo": "Profundización Profesional I",
+        "sigla": "TGA-ELP-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [
+            "Aplicar, de forma sistemática, los procedimientos de seguridad, salud y medio ambiente, analizando los factores de riesgo y promoviendo estrategias para su mitigación, dentro del desempeño laboral en las unidades aéreas.",
+            "Identificar la planeación y ejecución de las actividades relacionadas con la salud y seguridad en el trabajo en los diferentes contextos operacionales a través del programa SAFESTART para la aplicación en su área de desempeño."
+        ],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 25,
+        "modulo": "Economía",
+        "sigla": "TGA-ECO-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Analizar las características del proceso productivo y logístico de la aeronáutica, basándose en los modelos económicos y su impacto, para el apoyo a los procesos operativos de la FAC.",
+        "resultados_aprendizaje": [
+            "Analizar en el contexto aeronáutico, conceptos básicos de la economía, como escasez, elección, costo de oportunidad, oferta y demanda, entre otros.",
+            "Relacionar los procesos logísticos y operativos de la Fuerza Aeroespacial Colombiana con los diferentes ti pos de mercados, sus características y términos como competencia perfecta, monopolio, oligopolio, entre otros."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 INTRODUCCIÓN A",
+                "temas": [
+                    "LA ECONOMÍA Introducción a la",
+                    "economía El nacimiento de la",
+                    "economía política Una estrategia para",
+                    "desarrollar la asignatura está",
+                    "enfocada a la formación de",
+                    "conceptos, la inferencia de",
+                    "reglas, principios y"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 2 ELEMENTOS",
+                "temas": [
+                    "ECONÓMICOS Hechos económicos",
+                    "N/A 0,5 0,25 0,75",
+                    "Actos económicos 0,5 0,25 0,75",
+                    "Actividades",
+                    "económicas 0,5 0,25 0,75",
+                    "Relación de la",
+                    "economía con otras"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 3 EVAUACIÓN",
+                "temas": [
+                    "ECONÓMICA Criterios de",
+                    "evaluación nacional",
+                    "N/A 0,5 0,25 0,75",
+                    "Criterios de",
+                    "evaluación",
+                    "internacional 0,5 0,25 0,75",
+                    "Economía y gobierno 0,5 0,25 0,75"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 4 LOS SISTEMAS",
+                "temas": [
+                    "HISTÓRICOS DE",
+                    "ORGANIZACIÓN",
+                    "ECONÓMICA Y",
+                    "LAS CORRIENTES",
+                    "PENSAMIENTO",
+                    "ECONÓMICO Modos de producción Comunidad primitiva 1 0,5 1,5",
+                    "Modo 1.3 asiático de"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 5 LA ECONOMÍA Concepto de escasez",
+                "temas": [
+                    "N/A 1 0,5 1,5",
+                    "Escasez y economía 1 0,5 1,5",
+                    "Clasificación de los",
+                    "recursos 1 0,5 1,5",
+                    "Bienes económicos 0,5 0,25 0,75",
+                    "Bienes libres 0,5 0,25 0,75",
+                    "El sistema de precios"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 6 ECONOMÍA Y LAS",
+                "temas": [
+                    "ORGANIZACIONES Crecimiento",
+                    "empresarial N/A 0,5 0,25 0,75",
+                    "Teoría de la",
+                    "producción 0,5 0,25 0,75",
+                    "Teoría del consumo 0,5 0,25 0,75",
+                    "Fijación de precios 0,5 0,25 0,75"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 7 LAS EMPRESAS,",
+                "temas": [
+                    "LAS FAMILIAS Y",
+                    "EL SECTOR",
+                    "PÚBLICO Las empresas, las",
+                    "familias y el sector",
+                    "público La actividad productiva 0,5 0,25 0,75",
+                    "Las empresas 0,5 0,25 0,75",
+                    "Las familias y el sector"
+                ]
+            },
+            {
+                "nombre": "UNIDAD 8 ELASTICIDADES Y",
+                "temas": [
+                    "DEMANDAS DEL",
+                    "CONSUMIDOR Introducción al",
+                    "desarrollo económico N/A 0,5 0,25 0,75",
+                    "Economía, oferta y",
+                    "demanda 0,5 0,25 0,75",
+                    "Variaciones 0,5 0,25 0,75",
+                    "Precio y Cantidad 0,5 0,25 0,75"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 26,
+        "modulo": "Legislación Comercial y Laboral",
+        "sigla": "TGA-LEG-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 27,
+        "modulo": "Liderazgo en Instituciones Aéreas",
+        "sigla": "AER-LID-01",
+        "creditos": 1,
+        "horas_totales": 48,
+        "area": "Gestión aeroespacial",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 28,
+        "modulo": "Seminario de Investigación",
+        "sigla": "INV-SEM-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Investigativa",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 29,
+        "modulo": "Práctica de Area I",
+        "sigla": "TGA-PA-01",
+        "creditos": 4,
+        "horas_totales": 192,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "Realizar las tareas definidas en la Norma de Adiestramiento Técnico GH -FR-405, durante su etapa de formación productiva, aplicando los conocimientos construidos hasta el cuarto periodo académico, necesarias para el desarrollo de sus funciones en las unidades aéreas de la FAC.",
+        "resultados_aprendizaje": [
+            "Adaptar los conocimientos de su aérea especifica de desempeño del se ctor privado en el sector público para la gestión de recursos aéreos.",
+            "Desempeñar funciones y tareas propias de sus conocimientos con la debida atención a la seguridad y salud ocupacional.",
+            "Utilizar adecuadamente las formas, aplicativos y sistemas de infor mación para el registro de las evidencias, la evaluación de los procesos y mejora de los resultados en el área asignada.",
+            "Gestionar apropiadamente la información, los procesos y actividades del área asignada.",
+            "Administrar los bienes y recursos a su cargo, atendiendo a las necesidades de forma eficiente, responsable y profesional."
+        ],
+        "unidades": [
+            {
+                "nombre": "UNIDAD 1 NORMA",
+                "temas": [
+                    "DE ADIESTRAMIE",
+                    "NTO TÉCNICO TGA ADMINISTRACI ÓN",
+                    "DE SEGURIDAD Y",
+                    "EL RIESGO IDENTIFICAR LOS",
+                    "PROGRAMAS DE",
+                    "GESTIÓN DEL RIESGO DE",
+                    "LA FAC"
+                ]
+            }
+        ],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 30,
+        "modulo": "Profundización Profesional II",
+        "sigla": "TGA-ELP-02",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 31,
+        "modulo": "Fundamentos de Comercio Internacional",
+        "sigla": "TGA-FCI-01",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 32,
+        "modulo": "Desarrollo de Opción de Grado",
+        "sigla": "INV-GRA-01",
+        "creditos": 3,
+        "horas_totales": 144,
+        "area": "Investigativa",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 33,
+        "modulo": "Práctica de Area II",
+        "sigla": "TGA-PA-02",
+        "creditos": 4,
+        "horas_totales": 192,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    },
+    {
+        "id": 34,
+        "modulo": "Profundización Profesional III",
+        "sigla": "TGA-ELP-03",
+        "creditos": 2,
+        "horas_totales": 96,
+        "area": "Técnica profesional específica",
+        "objetivo_general": "",
+        "resultados_aprendizaje": [],
+        "unidades": [],
+        "horas_ad": 0,
+        "horas_ti": 0,
+        "is_new": false,
+        "horas_originales": {
+            "ad": 0,
+            "ti": 0
+        }
+    }
+]
