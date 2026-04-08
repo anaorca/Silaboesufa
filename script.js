@@ -941,34 +941,62 @@ function saveSyllabusToHistory() {
     if (currentCourseIndex === -1) return alert("Nada que guardar.");
     const course = syllabusDb.find(c => c.id == currentCourseIndex);
     
+    const history = JSON.parse(localStorage.getItem('syllabus_history') || '[]');
+    
+    // Buscar si ya existe una versión de este mismo curso
+    const existingIdx = history.findIndex(item => 
+        item.data.modulo === course.modulo && item.data.sigla === course.sigla
+    );
+
+    if (existingIdx !== -1) {
+        const confirmUpdate = confirm(`Ya existe una versión de "${course.modulo}". ¿Desea ACTUALIZAR la versión existente? (Cancelar para guardar como una versión nueva)`);
+        
+        if (confirmUpdate) {
+            history[existingIdx].timestamp = new Date().toISOString();
+            history[existingIdx].data = JSON.parse(JSON.stringify(course));
+            localStorage.setItem('syllabus_history', JSON.stringify(history));
+            alert(`✅ Versión actualizada con éxito.`);
+            return;
+        }
+    }
+
     const savedItem = {
         timestamp: new Date().toISOString(),
         id: Date.now(),
-        data: JSON.parse(JSON.stringify(course)) // Deep copy
+        data: JSON.parse(JSON.stringify(course))
     };
     
-    const history = JSON.parse(localStorage.getItem('syllabus_history') || '[]');
-    history.unshift(savedItem); // Add to start
-    localStorage.setItem('syllabus_history', JSON.stringify(history.slice(0, 50))); // Keep last 50
-    alert(`✅ "${course.modulo}" guardado en su historial.`);
+    history.unshift(savedItem);
+    localStorage.setItem('syllabus_history', JSON.stringify(history.slice(0, 50)));
+    alert(`✅ "${course.modulo}" guardado como nueva versión.`);
 }
+
+
 
 function openHistoryModal() {
     const list = document.getElementById('historyList');
     const history = JSON.parse(localStorage.getItem('syllabus_history') || '[]');
     
     if (history.length === 0) {
-        list.innerHTML = '<p style="text-align: center; color: var(--text-dim); padding: 20px;">No hay sílabos guardados aún.</p>';
+        list.innerHTML = `
+            <div style="text-align: center; color: var(--text-muted); padding: 40px;">
+                <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">empty</span>
+                <p>No hay sílabos guardados aún.</p>
+            </div>`;
     } else {
         list.innerHTML = history.map(item => `
             <div class="history-item">
                 <div class="history-item-info">
                     <h4>${item.data.modulo}</h4>
-                    <p>${new Date(item.timestamp).toLocaleString()}</p>
+                    <p>📅 ${new Date(item.timestamp).toLocaleString()}</p>
                 </div>
                 <div class="history-actions">
-                    <button class="btn btn-secondary btn-small" onclick="loadSyllabusFromHistory(${item.id})">Cargar</button>
-                    <button class="btn btn-danger btn-small" onclick="deleteHistoryItem(${item.id})">✕</button>
+                    <button class="btn btn-secondary btn-small" onclick="loadSyllabusFromHistory(${item.id})">
+                        <span class="icon">📂</span> Cargar
+                    </button>
+                    <button class="btn btn-icon btn-danger" onclick="deleteHistoryItem(${item.id})" title="Eliminar">
+                        ✕
+                    </button>
                 </div>
             </div>
         `).join('');
