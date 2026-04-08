@@ -39,6 +39,14 @@ async function init() {
         populateDropdown();
         setupEventListeners();
         loadSettings(); // Load saved AI config
+        
+        // --- LÓGICA DE ADMINISTRADOR ---
+        // Solo muestra el botón de configuración si la URL tiene ?admin=true
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === 'true') {
+            if (btnSettings) btnSettings.style.display = 'inline-flex';
+            console.log("✨ Modo Administrador Activado");
+        }
     } catch (error) {
         console.error("Error loading DB:", error);
     }
@@ -404,7 +412,7 @@ function renderEvaluations(evals) {
 
         evalCard.innerHTML = `
             <div class="eval-card-header">
-                <input type="text" class="input-eval-title" value="${ev.actividad}" oninput="updateEvalData(${eIdx}, 'actividad', this.value)" placeholder="Nombre de la Actividad de Evaluación...">
+                <textarea class="input-eval-title" oninput="updateEvalData(${eIdx}, 'actividad', this.value)" placeholder="Nombre de la Actividad de Evaluación..." rows="2">${ev.actividad}</textarea>
                 <div class="eval-card-actions">
                     <div class="alignment-status-ia">
                         <span class="icon-sparkle">✨</span> ${linkedRAPText}
