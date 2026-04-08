@@ -803,7 +803,7 @@ async function suggestEvaluations() {
 
 // 1. AI Calling Logic
 async function callGeminiAI(userPrompt) {
-    const endpoint = localStorage.getItem('ai_endpoint') || '';
+    const endpoint = localStorage.getItem('ai_endpoint') || 'https://silaboesufa.monicacastillaluna.workers.dev';
     const apiKey = localStorage.getItem('ai_api_key') || '';
     
     if (!endpoint && !apiKey) {
@@ -921,7 +921,7 @@ function saveSettings() {
 }
 
 function loadSettings() {
-    document.getElementById('aiEndpoint').value = localStorage.getItem('ai_endpoint') || '';
+    document.getElementById('aiEndpoint').value = localStorage.getItem('ai_endpoint') || 'https://silaboesufa.monicacastillaluna.workers.dev';
     document.getElementById('aiApiKey').value = localStorage.getItem('ai_api_key') || '';
     if (document.getElementById('aiModel')) {
         document.getElementById('aiModel').value = localStorage.getItem('ai_model') || 'gemini-flash-latest';
