@@ -1171,20 +1171,30 @@ function exportToWord() {
         docHtml += `<p>No se han definido unidades para este sílabo.</p>`;
     }
 
-    // 3. Evaluations
-    docHtml += `<h3 style="color: #1a237e; background: #f0f0f0; padding: 5px;">IV. PLAN DE EVALUACIÓN</h3>`;
-    const evals = document.querySelectorAll('.evaluation-card');
-    if (evals.length > 0) {
-        evals.forEach(card => {
-            const title = card.querySelector('input')?.value || 'Actividad';
-            const desc = card.querySelector('textarea')?.value || '';
-            const instrument = card.querySelector('select')?.value || 'Rúbrica';
+    // 3. Evaluations (Using internal DB for accuracy)
+    docHtml += `<h3 style="color: #1a237e; background: #f0f0f0; padding: 5px;">IV. PLAN DE EVALUACIÓN AUTÉNTICA</h3>`;
+    const course = syllabusDb.find(c => c.id == currentCourseIndex);
+    
+    if (course.evaluaciones && course.evaluaciones.length > 0) {
+        course.evaluaciones.forEach((ev, idx) => {
+            const rapLink = ev.rap_id !== undefined ? ` (Vinculado a: RAP ${ev.rap_id + 1})` : "";
             
             docHtml += `
-                <div style="border: 1px solid #999; margin: 10px 0; padding: 10px;">
-                    <p><strong>Actividad:</strong> ${title}</p>
-                    <p><strong>Instrumento:</strong> ${instrument}</p>
-                    <p><strong>Descripción:</strong><br>${desc.replace(/\n/g, '<br>')}</p>
+                <div style="border: 1px solid #999; margin: 15px 0; padding: 15px; background: #fafafa;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                        <tr><td width="20%"><strong>Actividad ${idx+1}:</strong></td><td style="font-size: 1.1rem; color: #1a237e;"><strong>${ev.actividad?.toUpperCase()}</strong>${rapLink}</td></tr>
+                        <tr><td><strong>Instrumento:</strong></td><td>${ev.instrumento}</td></tr>
+                    </table>
+                    <div style="margin-top: 10px;">
+                        <p style="margin-bottom: 5px;"><strong>Descripción del Reto:</strong></p>
+                        <p style="margin-left: 15px; color: #444;">${(ev.descripcion || 'No definida').replace(/\n/g, '<br>')}</p>
+                        
+                        <p style="margin-bottom: 5px; margin-top: 10px;"><strong>Instrucciones:</strong></p>
+                        <p style="margin-left: 15px; color: #444;">${(ev.instrucciones || 'No definidas').replace(/\n/g, '<br>')}</p>
+                        
+                        <p style="margin-bottom: 5px; margin-top: 10px;"><strong>Criterios / Rúbrica:</strong></p>
+                        <p style="margin-left: 15px; color: #444;">${(ev.criterios || 'No definidos').replace(/\n/g, '<br>')}</p>
+                    </div>
                 </div>
             `;
         });
@@ -1193,7 +1203,7 @@ function exportToWord() {
     }
 
     // Meta Footer
-    docHtml += `<hr><p style="font-size: 0.8rem; text-align: center; color: #777;">Generado automáticamente por Syllabus Virtualizer TGA - ESUFA | ${new Date().toLocaleDateString()}</p>`;
+    docHtml += `<hr><p style="font-size: 0.8rem; text-align: center; color: #777;">Generado por Syllabus Virtualizer ESUFA | ${new Date().toLocaleDateString()}</p>`;
 
     // Download logic
     const blob = new Blob(['\ufeff', `
