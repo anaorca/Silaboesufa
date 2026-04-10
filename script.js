@@ -241,12 +241,28 @@ function selectCourse(course) {
     renderRAPs(course.resultados_aprendizaje || []);
     
     // Units & Topics (We only keep the official content structure)
-    const virtualizedUnits = (course.unidades || []).map(unit => ({
-        ...unit,
-        actividades: "", // Clear for virtual redesign
-        recursos: "",    // Clear for virtual redesign
-        rap_id: undefined // Force re-alignment
-    }));
+    const virtualizedUnits = (course.unidades || []).map(unit => {
+        let tema = "";
+        let subtemas = "";
+        
+        if (Array.isArray(unit.temas)) {
+            tema = unit.temas[0] || "";
+            subtemas = unit.temas.slice(1).join('\n');
+        } else if (typeof unit.temas === 'string') {
+            const split = unit.temas.split('\n');
+            tema = split[0] || "";
+            subtemas = split.slice(1).join('\n');
+        }
+
+        return {
+            ...unit,
+            tema: unit.tema || tema,
+            subtemas: unit.subtemas || subtemas,
+            actividades: unit.actividades || "", // Clear for virtual redesign if empty
+            recursos: unit.recursos || "",    // Clear for virtual redesign if empty
+            rap_id: unit.rap_id               // Keep if already aligned
+        };
+    });
     
     // Keep existing evaluations if coming from history/load, else start fresh for virtual redesign
     if (!course.evaluaciones || course.evaluaciones.length === 0) {
@@ -275,17 +291,17 @@ function renderUnits(units) {
     units.forEach((unit, uIdx) => {
         // Automatic Alignment Logic (Background)
         if (unit.rap_id === undefined && raps.length > 0) {
-            unit.rap_id = findBestRAPMatch((unit.nombre || "") + " " + (unit.temas || ""), raps);
+            unit.rap_id = findBestRAPMatch((unit.nombre || "") + " " + (unit.tema || ""), raps);
         }
 
         const unitRow = document.createElement('div');
         unitRow.className = 'unit-row';
         
-        let temasText = "";
-        if (Array.isArray(unit.temas)) {
-            temasText = unit.temas.join('\n');
+        let subtemasText = "";
+        if (Array.isArray(unit.subtemas)) {
+            subtemasText = unit.subtemas.join('\n');
         } else {
-            temasText = unit.temas || "";
+            subtemasText = unit.subtemas || "";
         }
 
         let linkedRAPText = unit.rap_id !== undefined ? `Vínculo IA: RAP ${unit.rap_id + 1}` : "Analizando Vínculo...";
@@ -298,7 +314,10 @@ function renderUnits(units) {
                 </div>
             </div>
             <div class="unit-col-content">
-                <textarea class="topics-textarea" placeholder="Temas..." oninput="updateUnitTopics(${uIdx}, this.value)">${temasText}</textarea>
+                <textarea class="topics-textarea" placeholder="Tema principal..." oninput="updateUnitTema(${uIdx}, this.value)">${unit.tema || ''}</textarea>
+            </div>
+            <div class="unit-col-content">
+                <textarea class="topics-textarea" placeholder="Subtemas..." oninput="updateUnitSubtemas(${uIdx}, this.value)">${subtemasText}</textarea>
             </div>
             <div class="unit-col-content">
                 <textarea class="topics-textarea" placeholder="Actividades (AVA)..." oninput="updateUnitActivities(${uIdx}, this.value)">${unit.actividades || ''}</textarea>
@@ -336,13 +355,17 @@ function updateUnitResources(uIdx, value) {
     }
 }
 
-function updateUnitTopics(uIdx, value) {
+function updateUnitTema(uIdx, value) {
     const course = syllabusDb.find(c => c.id == currentCourseIndex);
     if (course && course.unidades[uIdx]) {
-        // Store as a single string for simplicity as requested, 
-        // or array if we want to keep structure. 
-        // Let's store as a string for now as it's "un cuadro".
-        course.unidades[uIdx].temas = value;
+        course.unidades[uIdx].tema = value;
+    }
+}
+
+function updateUnitSubtemas(uIdx, value) {
+    const course = syllabusDb.find(c => c.id == currentCourseIndex);
+    if (course && course.unidades[uIdx]) {
+        course.unidades[uIdx].subtemas = value;
     }
 }
 
@@ -360,7 +383,7 @@ function addUnit() {
     }
     const course = syllabusDb.find(c => c.id == currentCourseIndex);
     if (!course.unidades) course.unidades = [];
-    course.unidades.push({ nombre: "Nueva Unidad", temas: "", actividades: "", recursos: "" });
+    course.unidades.push({ nombre: "Nueva Unidad", tema: "", subtemas: "", actividades: "", recursos: "" });
     renderUnits(course.unidades);
 }
 
@@ -650,7 +673,7 @@ async function autoAlignSyllabusWithIA() {
     
     PROHIBIDO: Cualquier mención a "clases" tradicionales, lecturas pasivas o "clases magistrales". Todo debe centrarse en el HACER del estudiante.
 
-    Devuelve un JSON con: { unidades: [{ nombre, temas, actividades, recursos, rap_id }], evaluaciones: [{ actividad, descripcion, instrucciones, criterios, instrumento, rap_id }] }.`;
+    Devuelve un JSON con: { unidades: [{ nombre, tema, subtemas, actividades, recursos, rap_id }], evaluaciones: [{ actividad, descripcion, instrucciones, criterios, instrumento, rap_id }] }.`;
 
     try {
         await showIALoading("Analizando Alineamiento Constructivo Global...");
@@ -681,7 +704,8 @@ async function autoAlignSyllabusWithIA() {
                 ...u,
                 actividades: flatten(u.actividades),
                 recursos: flatten(u.recursos),
-                temas: flatten(u.temas || u.contenido)
+                tema: flatten(u.tema),
+                subtemas: flatten(u.subtemas || u.temas || u.contenido)
             }));
             
             course.evaluaciones = (data.evaluaciones || []).map(ev => ({
@@ -1152,15 +1176,16 @@ function exportToWord() {
         units.forEach((row, i) => {
             const name = row.querySelector('.unit-textarea-label')?.value || 'Sin Nombre';
             const textareas = row.querySelectorAll('.topics-textarea');
-            const topics = textareas[0]?.value || '';
-            const activities = textareas[1]?.value || '';
-            const resources = textareas[2]?.value || '';
-            
+            const tema = textareas[0]?.value || '';
+            const subtemas = textareas[1]?.value || '';
+            const activities = textareas[2]?.value || '';
+            const resources = textareas[3]?.value || '';
             docHtml += `
                 <div style="border: 1px solid #ccc; margin-bottom: 15px; padding: 10px;">
                     <h4 style="margin: 0 0 10px 0; color: #1565c0;">UNIDAD ${i+1}: ${name}</h4>
                     <table width="100%" border="0" cellspacing="0" cellpadding="5">
-                        <tr><td width="20%"><strong>Temas:</strong></td><td>${topics.replace(/\n/g, '<br>')}</td></tr>
+                        <tr><td width="20%"><strong>Tema Principal:</strong></td><td>${tema.replace(/\n/g, '<br>')}</td></tr>
+                        <tr><td width="20%"><strong>Subtemas:</strong></td><td>${subtemas.replace(/\n/g, '<br>')}</td></tr>
                         <tr><td width="20%"><strong>Actividades AVA:</strong></td><td>${activities.replace(/\n/g, '<br>')}</td></tr>
                         <tr><td width="20%"><strong>Recursos:</strong></td><td>${resources.replace(/\n/g, '<br>')}</td></tr>
                     </table>
