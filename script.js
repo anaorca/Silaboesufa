@@ -658,28 +658,39 @@ async function autoAlignSyllabusWithIA() {
     Asignatura: ${course.modulo}
     Objetivo: ${course.objetivo_general}
     Resultados (RAP): ${raps.join(' | ')}
-    Unidades: ${JSON.stringify(course.unidades)}
+    Unidades actuales: ${JSON.stringify(course.unidades)}
     
-    INSTRUCCIONES DE DISEÑO INSTRUCCIONAL (METODOLOGÍAS ACTIVAS):
-    No te limites a cambiar nombres. Genera ACTIVIDADES REALES DE APRENDIZAJE ACTIVO:
-    1. Si es VIRTUAL: Sugiere actividades como: 
-       - "Simulación de escenarios técnicos mediante software específico".
-       - "Resolución de Casos de Estudio en equipos virtuales (Teams/Moodle)".
-       - "Construcción de Wikis colaborativas sobre doctrina técnica".
-       - "Laboratorios virtuales o simuladores de vuelo/mantenimiento".
-       - "Debates sincrónicos sobre ética o táctica en la fuerza".
-    2. RECURSOS: Deben ser digitales (OVAs, Simuladores, Guías interactivas, Videotutoriales técnicos).
-    3. EVALUACIÓN: Debe ser evaluación auténtica (Proyectos, Portafolios, Rúbricas de desempeño en simulador).
+    INSTRUCCIONES CRÍTICAS:
+    1. Genera UNIDADES y EVALUACIONES alineadas al 100% con los RAPs proporcionados.
+    2. Los RAP_ID deben ser números (0 para el primer RAP, 1 para el segundo, etc.).
+    3. Si es VIRTUAL: Sugiere actividades REALES de aprendizaje activo (Simuladores, Foros de debate técnico, Wikis, Análisis de casos en Teams). Nada de "clases magistrales".
+    4. EVALUACIÓN: Debe ser evaluación auténtica vinculada a un RAP.
     
-    PROHIBIDO: Cualquier mención a "clases" tradicionales, lecturas pasivas o "clases magistrales". Todo debe centrarse en el HACER del estudiante.
-
-    Devuelve un JSON con: { unidades: [{ nombre, tema, subtemas, actividades, recursos, rap_id }], evaluaciones: [{ actividad, descripcion, instrucciones, criterios, instrumento, rap_id }] }.`;
+    DEVOLUCIÓN OBLIGATORIA:
+    Responde ÚNICAMENTE con un objeto JSON válido. No incluyas explicaciones ni bloques de código markdown.
+    Estructura exacta:
+    {
+      "unidades": [
+        { "nombre": "...", "tema": "...", "subtemas": "...", "actividades": "...", "recursos": "...", "rap_id": 0 }
+      ],
+      "evaluaciones": [
+        { "actividad": "...", "descripcion": "...", "instrucciones": "...", "criterios": "...", "instrumento": "...", "rap_id": 0 }
+      ]
+    }`;
 
     try {
         await showIALoading("Analizando Alineamiento Constructivo Global...");
-        const response = await callGeminiAI(prompt);
-        // Extract JSON from response (handling potential markdown)
-        const jsonMatch = response.match(/\{[\s\S]*\}/);
+        const response = await callGeminiAI(prompt, { json: true });
+        
+        // Robust JSON Cleaning
+        let cleanResponse = response.trim();
+        if (cleanResponse.startsWith("```json")) {
+            cleanResponse = cleanResponse.replace(/^```json\s*/, "").replace(/\s*```$/, "");
+        } else if (cleanResponse.startsWith("```")) {
+            cleanResponse = cleanResponse.replace(/^```\s*/, "").replace(/\s*```$/, "");
+        }
+        
+        const jsonMatch = cleanResponse.match(/\{[\s\S]*\}/);
         if (jsonMatch) {
             const data = JSON.parse(jsonMatch[0]);
             
@@ -834,7 +845,7 @@ async function suggestEvaluations() {
 // --- NEW UTILITIES ---
 
 // 1. AI Calling Logic
-async function callGeminiAI(userPrompt) {
+async function callGeminiAI(userPrompt, options = {}) {
     const endpoint = localStorage.getItem('ai_endpoint') || 'https://silaboesufa.monicacastillaluna.workers.dev';
     const apiKey = localStorage.getItem('ai_api_key') || '';
     
@@ -845,8 +856,17 @@ async function callGeminiAI(userPrompt) {
     // Standard Gemini Payload
     const body = { 
         contents: [{ parts: [{ text: userPrompt }] }],
-        generationConfig: { temperature: 0.7, topP: 0.95, topK: 40, maxOutputTokens: 2048 }
+        generationConfig: { 
+            temperature: 0.7, 
+            topP: 0.95, 
+            topK: 40, 
+            maxOutputTokens: 4096
+        }
     };
+
+    if (options.json) {
+        body.generationConfig.response_mime_type = "application/json";
+    }
 
     const model = document.getElementById('aiModel')?.value || localStorage.getItem('ai_model') || 'gemini-flash-latest';
     const url = endpoint || `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
